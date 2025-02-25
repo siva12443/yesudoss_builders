@@ -102,13 +102,14 @@
 @media (max-width: 1024px)
 {
     .contactModes{
-        width: 100%;
+        width: 80%;
+        gap: 0.5rem;
     }
     .row{
         flex-direction: column;
-        width: 100%;
+        width: 80%;
     }
     .mode{
-        width: 100%;
+        width: 80%;
     }
 }

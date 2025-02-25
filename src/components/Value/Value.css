@@ -29,10 +29,24 @@
   width: 100%;
   justify-content: space-between;
   cursor: pointer;
+  display: flex; /* Ensure proper spacing */
+  align-items: center; /* Vertically align content */
+  border: none; /* Optional: Remove default button border */
+}
+
+/* 📱 Mobile: Adjust padding & layout for smaller screens */
+@media (max-width: 600px) {
+  .accordionButton {
+    padding: 0.5rem; /* Reduce padding */
+    font-size: 12px; /* Slightly smaller text */
+    flex-direction: row; /* Stack content vertically if needed */
+    text-align: center;
+ /* Align text to the left */
+  }
 }
 
 .icon {
-  padding: 10px;
+  padding: 5px;
   background: #eeeeff;
   border-radius: 100%;
 }
@@ -53,5 +67,6 @@
 @media (max-width: 768px) {
     .accordionButton .primaryText{
         font-size: .8rem;
+        max-width: 70%;
     }
 }

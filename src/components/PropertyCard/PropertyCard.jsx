@@ -19,8 +19,8 @@ const PropertyCard = ({card}) => {
         {/* <span style={{ color: "orange" }}>$</span>
         <span>{card.price}</span> */}
       {/* </span> */}
-      {/* <span className="primaryText">{truncate(card.title, {length: 20})}</span>
-      <span className="secondaryText">{truncate(card.description, {length: 150})}</span> */}
+      <span className="primaryText">{truncate(card.title, {length: 25})}</span>
+      {/* <span className="secondaryText">{truncate(card.description, {length: 150})}</span> */}
     </div>
   );
 };

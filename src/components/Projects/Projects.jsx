@@ -10,10 +10,11 @@ import useProperties from "../../hooks/useProperties";
 import CardWithImage from "../../utils/cardWithImage";
 import {PuffLoader} from 'react-spinners'
 
+//pushing for deployment
 const cardData = [
   {
-    title: "Site 1",
-    description: "Our 1st project made our client so satisfied with the interior and exterior works",
+    title: "Site 1 - Nanganallur",
+    // description: "Our 1st project made our client so satisfied with the interior and exterior works",
     images: [
       "/Site1_1.jpeg",
       "/Site1_2.jpeg",
@@ -24,8 +25,8 @@ const cardData = [
     ],
   },
   {
-    title: "Site 2",
-    description: "Our 2nd project made our client so satisfied with the interior and exterior works",
+    title: "Site 2 - Nehru Colony",
+    // description: "Our 2nd project made our client so satisfied with the interior and exterior works",
     images: [
       "/Site2_1.jpg",
       "/Site2_2.jpg",
@@ -37,8 +38,8 @@ const cardData = [
     ],
   },
   {
-    title: "Site 3",
-    description: "Our 3rd project made our client so satisfied with the interior and exterior works",
+    title: "Site 3 - Mylapore",
+    // description: "Our 3rd project made our client so satisfied with the interior and exterior works",
     images: [
       "/Site3_1.jpg",
       "/Site3_2.jpg",
@@ -52,8 +53,20 @@ const cardData = [
     ],
   },
   {
-    title: "Site 4",
-    description: "Our 4th project made our client so satisfied with the interior and exterior works",
+    title: "Site 4 - Meenambakkam",
+    // description: "Our 5th project is a church project",
+    images: [
+      "/Site5_1.jpg",
+      "/Site5_2.jpg",
+      "/Site5_3.jpg",
+      "/Site5_4.jpg",
+      "/Site5_5.jpg",
+      "/Site5_6.jpg",
+    ],
+  },
+  {
+    title: "Site 5 - Pazhavanthangal",
+    // description: "Our 4th project made our client so satisfied with the interior and exterior works",
     images: [
       "/Site4_1.jpg",
       "/Site4_2.jpg",
@@ -64,18 +77,7 @@ const cardData = [
       "/Site4_7.jpg",
     ],
   },
-  {
-    title: "Site 5",
-    description: "Our 5th project is a church project",
-    images: [
-      "/Site5_1.jpg",
-      "/Site5_2.jpg",
-      "/Site5_3.jpg",
-      "/Site5_4.jpg",
-      "/Site5_5.jpg",
-      "/Site5_6.jpg",
-    ],
-  },
+  
 ];
 
 const Residencies = () => {

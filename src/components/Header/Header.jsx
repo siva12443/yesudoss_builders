@@ -5,6 +5,7 @@ import OutsideClickHandler from "react-outside-click-handler";
 import { Link, NavLink } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import useAuthCheck from "../../hooks/useAuthCheck.jsx";
+import { getMenuStyles } from "../../utils/common.js";
 
 const Header = () => {
   const [menuOpened, setMenuOpened] = useState(false);
@@ -36,6 +37,13 @@ const Header = () => {
             setMenuOpened(false);
           }}
         >
+          <div className = "flexCenter h-menu" style={getMenuStyles(menuOpened)}>
+            <NavLink >Home</NavLink>
+            <NavLink >Our Services</NavLink>
+            <NavLink >Construction Package</NavLink>
+            <NavLink >Our Projects</NavLink>
+            <NavLink >Contact Us</NavLink>
+          </div>
           {/* <div
             // ref={menuRef}
             className="flexCenter h-menu"

@@ -15,45 +15,45 @@ const Residencies = () => {
     {
       id: 1,
       img: "./Construction.jpg",
-      title: "Construction",
+      title: "Building Construction",
       description: "We deliver high-quality construction services, building durable and aesthetically pleasing structures tailored to your needs."
     },
-    {
-      id: 2,
-      img: "./Designing.jpg",
-      title: "Designing",
-      description: "Our expert designers craft innovative and functional spaces that blend creativity with practicality."
-    },
+    // {
+    //   id: 2,
+    //   img: "./Designing.jpg",
+    //   title: "Designing",
+    //   description: "Our expert designers craft innovative and functional spaces that blend creativity with practicality."
+    // },
     {
       id: 3,
       img: "./3D Planning.png",
-      title: "2D & 3D Planning",
+      title: "2D & 3D Design Planning",
       description: "We provide detailed 2D and 3D plans to visualize your project with precision before construction begins."
     },
     {
       id: 4,
       img: "./Pre-Construction.jpg",
-      title: "Pre-Construction",
+      title: "Pre-Consultancy",
       description: "We offer thorough pre-construction planning to ensure your project starts smoothly and stays on track."
     },
     {
       id: 5,
       img: "./modern-styled-entryway.jpg",
-      title: "Interior Works",
+      title: "Interiors & Paintings",
       description: "Our interior solutions transform spaces into stylish, comfortable, and functional environments that reflect your style."
     },
     {
       id: 6,
       img: "./renovation.png",
-      title: "Renovation",
+      title: "Building Renovation",
       description: "Breathe new life into your spaces with our renovation services, combining modern techniques with timeless designs."
     },
-    {
-      id: 7,
-      img: "./mainenance.svg",
-      title: "Maintenance",
-      description: "We provide reliable maintenance services to keep your property in excellent condition for years to come."
-    }
+    // {
+    //   id: 7,
+    //   img: "./mainenance.svg",
+    //   title: "Maintenance",
+    //   description: "We provide reliable maintenance services to keep your property in excellent condition for years to come."
+    // }
   ];  
 
   if(isError){

@@ -36,7 +36,7 @@ const CardWithImage = ({ title, description, price, images }) => {
       </div>
 
       {/* Card Body */}
-      <CardBody p="6">
+      <CardBody p="6" alignItems="center" textAlign="center">
         <Heading size="md" mb="2">
           {title}
         </Heading>
