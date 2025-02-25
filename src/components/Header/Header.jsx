@@ -6,6 +6,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import useAuthCheck from "../../hooks/useAuthCheck.jsx";
 import { getMenuStyles } from "../../utils/common.js";
+import { MdMenu } from "react-icons/md";
 
 const Header = () => {
   const [menuOpened, setMenuOpened] = useState(false);
@@ -62,6 +63,9 @@ const Header = () => {
         </OutsideClickHandler>
 
         {/* for medium and small screens */}
+        <div className="menu-icon" onClick={() => setMenuOpened((prev) => !prev)}>
+          <MdMenu size={30} />
+        </div>  
         {/* <div
           className="menu-icon"
           onClick={() => setMenuOpened((prev) => !prev)}
