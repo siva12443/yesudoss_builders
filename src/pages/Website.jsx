@@ -14,18 +14,23 @@ import Value from "../components/Value/Value";
 const Website = () => {
   return (
     <div className="App">
-    <div>
-      <div className="white-gradient" />
-      <Hero />
+      <div id="heroSection">
+        <Hero />
+      </div>
+      <div id="servicesSection">
+        <Services />
+      </div>
+      <div id="valueSection">
+        <Value />
+      </div>
+      <div id="projectsSection">
+        <Residencies />
+      </div>
+      <div id="contactSection">
+        <Contact />
+      </div>
     </div>
-    {/* <Companies /> */}
-    <Services/>
-    <Value/>
-    <Residencies />
-    <Contact/>
-    {/* <GetStarted/> */}
-  </div>
-  )
+  );
 }
 
 export default Website

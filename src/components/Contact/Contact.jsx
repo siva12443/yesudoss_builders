@@ -15,30 +15,28 @@ const Contact = () => {
             What are you waiting for? Call us now.
           </span>
 
-          <div className="flexColStart contactModes">
+          <div className="flexColCenter contactModes">
             {/* first row */}
-            <div className="flexStart row">
+            <div className="flexCenter row">
               <div className="flexColCenter mode">
-                <div className="flexStart">
+                <div className="flexCenter">
                   <div className="flexCenter icon">
                     <MdCall size={25} />
                   </div>
-                  <div className="flexColStart detail">
-                    <span className="primaryText">Call</span>
-                    <span className="secondaryText">+91 73581 88299</span>
+                  <div className="flexColCenter detail">
+                    <span className="contactTitle">Call</span>
                   </div>
                 </div>
                 <div className="flexCenter button">Call now</div>
               </div>
 
               <div className="flexColCenter mode">
-                <div className="flexStart">
+                <div className="flexCenter">
                   <div className="flexCenter icon">
                     <BsWhatsapp size={25} />
                   </div>
-                  <div className="flexColStart detail">
-                    <span className="primaryText">Chat</span>
-                    <span className="secondaryText">+91 73581 88299</span>
+                  <div className="flexColCenter detail">
+                    <span className="contactTitle">Chat</span>
                   </div>
                 </div>
                 <div className="flexCenter button">Chat now</div>
@@ -53,8 +51,8 @@ const Contact = () => {
                     <BsEnvelope size={25} />
                   </div>
                   <div className="flexColStart detail">
-                    <span className="primaryText">Email</span>
-                    <span className="secondaryText">yesudossbuilders@gmail.com</span>
+                    <span className="contactTitle">Email</span>
+                    <span className="contactText">yesudossbuilders@gmail.com</span>
                   </div>
                 </div>
                 <div className="flexCenter button">Write Email</div>

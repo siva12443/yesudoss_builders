@@ -3,8 +3,48 @@ import CountUp from "react-countup";
 import { motion } from "framer-motion";
 // import SearchBar from "../SearchBar/SearchBar";
 import {FaStar} from 'react-icons/fa';
+import { useState } from "react";
 
 const Hero = () => {
+  const [enquirerName, setEnquirerName] = useState("");
+  const [enquirerContact, setEnquirerContact] = useState("");
+  const [enquirerEmail, setEnquirerEmail] = useState("");
+  const [serviceRequired, setServiceRequired] = useState("");
+  const [serviceDescription, setServiceDescription] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Define template params as required by your EmailJS template
+    const templateParams = {
+      from_name: enquirerName,
+      contact_number: enquirerContact,
+      email: enquirerEmail,
+      service: serviceRequired,
+      description: serviceDescription,
+    };
+
+    // Send the email using EmailJS
+    emailjs
+      .send(
+        'YOUR_SERVICE_ID',    // e.g. service_xxx
+        'YOUR_TEMPLATE_ID',   // e.g. template_xxx
+        templateParams,
+        'YOUR_PUBLIC_KEY'     // e.g. user_xxx or publicKey_xxx
+      )
+      .then(
+        (response) => {
+          console.log('SUCCESS!', response.status, response.text);
+          alert('Your enquiry has been submitted!');
+          // Optionally clear form or set success state
+        },
+        (err) => {
+          console.error('FAILED...', err);
+          alert('There was an error sending your enquiry. Please try again.');
+        }
+      );
+  };
+  
   return (
     <section className="hero-wrapper">
       <div className="paddings innerWidth flexCenter hero-container">
@@ -64,18 +104,40 @@ const Hero = () => {
 
         {/* right side */}
         <div className="flexCenter hero-right">
-          <motion.div
-            initial={{ x: "7rem", opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{
-              duration: 2,
-              type: "tween",
-            }}
-            className="image-container"
-          >
-            <img src="./hero Image.jpg" alt="houses" />
-          </motion.div>
-        </div>
+  <motion.div
+    initial={{ x: "7rem", opacity: 0 }}
+    animate={{ x: 0, opacity: 1 }}
+    transition={{
+      duration: 2,
+      type: "tween",
+    }}
+    className="image-container"
+  >
+    <img src="./hero Image.jpg" alt="houses" className="hero-image" />
+    
+    {/* Enquiry Form Over the Image */}
+    <form className="enquiry-form">
+      <label>Name <span>*</span></label>
+      <input className="long-input" required onChange={(e) => setEnquirerName(e.target.value)}/>
+      <label>Contact <span>*</span></label>
+      <input className="long-input" required onChange={(e) => setEnquirerContact(e.target.value)}/>
+      <label>Email <span>*</span></label>
+      <input className="long-input" required onChange={(e) => setEnquirerEmail(e.target.value)}/>
+      <label>Service <span>*</span></label>
+      <select className="long-input" required onChange={(e) => setServiceRequired(e.target.value)}> 
+        <option value="Choose a Service">Choose a Service</option>
+        <option value="Building Construction">Building Construction</option>
+        <option value="2D & 3D Printing">2D & 3D Printing</option>
+        <option value="Pre-Consultancy">Pre-Consultancy</option>
+        <option value="Interiors & Paintings">Interiors & Paintings</option>
+        <option value="Building Renovation">Building Renovation</option>
+      </select>
+      <label>Description</label>
+      <textarea className="long-input" required onChange={e => setServiceDescription(e.target.value)}/>
+      <button >Submit</button>
+    </form>
+  </motion.div>
+</div>
       </div>
     </section>
   );

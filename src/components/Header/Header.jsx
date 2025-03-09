@@ -39,11 +39,11 @@ const Header = () => {
           }}
         >
           <div className = "flexCenter h-menu" style={getMenuStyles(menuOpened)}>
-            <NavLink >Home</NavLink>
-            <NavLink >Our Services</NavLink>
-            <NavLink >Construction Package</NavLink>
-            <NavLink >Our Projects</NavLink>
-            <NavLink >Contact Us</NavLink>
+            <a href="#heroSection">Home</a>
+            <a href="#servicesSection" >Our Services</a>
+            {/* <a >Construction Package</a> */}
+            <a href="#projectsSection">Our Projects</a>
+            <a href="#contactSection">Contact Us</a>
           </div>
           {/* <div
             // ref={menuRef}

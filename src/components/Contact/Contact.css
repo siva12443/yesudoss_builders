@@ -1,115 +1,165 @@
+/* Container adjustments */
 .c-container {
   justify-content: space-between;
+  gap: 2rem; /* Add some space between columns */
 }
+
 .c-container > div {
   flex: 1;
 }
-.c-right {
-  width: 100%;
-}
+
 .c-left {
   gap: 0.5rem;
 }
+
+.c-right .image-container img {
+  display: block;      /* Remove inline gaps */
+  max-width: 100%;     /* Scale image responsively */
+  height: auto;
+  object-fit: cover;   /* Ensures image is cropped nicely if container is fixed */
+}
+
+/* Contact Modes */
 .contactModes {
   margin-top: 2rem;
   gap: 1rem;
+  width: 100%;
 }
+
 .contactModes .row {
+  display: flex;
   gap: 1.5rem;
+  flex-wrap: wrap; /* Allows items to wrap on smaller screens */
 }
-.mode {
-  width: 16rem;
+
+/* Mode Card Styles */
+.mode, .mode-email {
+  flex: 1;                          /* Let the cards stretch within the row */
+  min-width: 200px;                 /* Reasonable min-width */
+  max-width: 400px;                 /* Reasonable max-width for each card */
   padding: 1rem;
   border: 0.8px solid rgba(128, 128, 128, 0.143);
   border-radius: 5px;
   gap: 1rem;
   transition: all 300ms ease-in;
+  display: flex;
+  flex-direction: column;
 }
 
-.mode-email {
-  width: 33.5rem;
-  padding: 1rem;
-  border: 0.8px solid rgba(128, 128, 128, 0.143);
-  border-radius: 5px;
-  gap: 1rem;
-  transition: all 300ms ease-in;
-}
-
-.mode-email .button {
+/* Buttons inside modes */
+.mode .button, .mode-email .button {
   width: 100%;
   background: var(--lightBlue);
-  color: var(--blue);
+  /* color: var(--blue); */
   font-size: 0.9rem;
   font-weight: 600;
+  text-align: center;
+  padding: 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
-.mode-email > :nth-child(1) {
-  width: 100%;
-  gap: 1.6rem;
-}
-.mode-email .detail .primaryText {
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-
-.mode-email:hover {
-  scale: 1.1;
+/* Hover effects */
+.mode:hover, .mode-email:hover {
+  transform: scale(1.05);
   box-shadow: var(--shadow);
 }
-
-.mode-email .button:hover {
+.mode .button:hover, .mode-email .button:hover {
   background: var(--blue-gradient);
   color: white;
-  scale: 0.8;
+  transform: scale(0.95);
 }
 
-
-.mode .button {
-  width: 100%;
-  background: var(--lightBlue);
-  color: var(--blue);
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-.mode > :nth-child(1) {
-  width: 100%;
-  gap: 1.6rem;
-}
-.mode .detail .primaryText {
-  font-size: 1.1rem;
+.detail .contactTitle {
+  margin-left: 10px;
+  text-justify: center;
+  font-size: 1.5rem;
   font-weight: 600;
 }
 
-.mode:hover {
-  scale: 1.1;
-  box-shadow: var(--shadow);
+.c-left .contactText {
+  margin-left: 10px;
+  font-size: 1rem;
+  text-wrap: nowrap;
 }
 
-.mode .button:hover {
-  background: var(--blue-gradient);
-  color: white;
-  scale: 0.8;
-}
+/* MEDIA QUERIES */
 
+/* Tablet and smaller: stack columns */
 @media (max-width: 1024px) {
   .c-container {
     flex-direction: column;
+    align-items: center; /* Center them if you like */
   }
+
   .c-right {
     justify-content: center;
+    margin-top: 2rem;
+  }
+
+  .contactModes {
+    width: 100%;
+  }
+
+  .row {
+    flex-direction: column; /* Each card in its own row */
+    width: 100%;
+  }
+
+  .mode, .mode-email {
+    width: 100%;  /* Let them fill available width */
+    max-width: 100%;
   }
 }
-@media (max-width: 1024px)
-{
-    .contactModes{
-        width: 80%;
-        gap: 0.5rem;
-    }
-    .row{
-        flex-direction: column;
-        width: 80%;
-    }
-    .mode{
-        width: 80%;
-    }
+
+/* For even smaller screens (mobile) if needed */
+@media (max-width: 600px) {
+  .c-left .contactTitle {
+    font-size: 1.2rem;
+  }
+  .c-left .contactText {
+    font-size: 1rem;
+  }
+}
+
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexColCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  gap: 1rem;
+  /* Optional: justify-content: center; if you want to center all modes in a row */
+}
+
+.mode {
+  /* Your existing styles (border, padding, etc.) */
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* Center content within each card */
+  justify-content: center;
+}
+
+.icon {
+  /* If you want to center the icon within its own container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  /* Center text inside button */
+  text-align: center;
+  color: black;
+  /* Other button styles (padding, background, etc.) */
 }

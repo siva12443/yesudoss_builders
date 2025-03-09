@@ -76,18 +76,83 @@
     height: 100%;
 }
 
-.enquiry-form{
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  margin-top: 20px;
+.hero-right {
+  position: relative; /* Needed for absolute positioning */
 }
 
-.long-input{
-  padding: 5px;
-  width: 250px;
+.image-container {
+  position: relative; /* Allows absolute elements inside */
 }
 
+.hero-image {
+  width: 100%; /* Ensures the image is responsive */
+  height: auto;
+   /* Reduce opacity to make form visible */
+}
+
+.enquiry-form {
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust to center */
+  background: transparent; /* Semi-transparent background */
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  width: 80%;
+  max-width: 400px; /* Prevents form from getting too large */
+  text-align: left;
+  opacity: 0.4px;
+}
+
+.enquiry-form span {
+  color: red;
+}
+
+/* Styling for form inputs */
+.enquiry-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  display: block;
+  max-height: 30px;
+}
+
+.enquiry-form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  display: block;
+  max-height: fit-content;
+}
+
+.enquiry-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  display: block;
+}
+
+.enquiry-form button {
+
+  padding: 7.5px;
+  margin-top: 10px;
+  background-color: #8249d6;
+  color: white;
+  border-radius: 10px;
+  display: block;
+}
+
+.enquiry-form label {
+  color: white;
+  margin-top: 10px;
+}
 /* mobile screens */
 @media  (max-width: 640px){
 
