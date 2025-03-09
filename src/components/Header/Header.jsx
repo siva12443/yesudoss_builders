@@ -23,13 +23,11 @@ const Header = () => {
   };
   return (
     <section className="h-wrapper" style={{ background: "var(--brown)" }}> {/*#eeeeff*/}
-      <div className="flexCenter innerWidth paddings h-container">
+      <div className="innerWidth paddings h-container">
         {/* logo */}
-        <Link to="/">
-          <span className="company-name-wrapper">
-            <img src="./Yesudoss_Logo.png" alt="logo" width={60} />
-            <p className="orangeText">Yesudoss Builders</p>
-          </span>
+        <Link to="/" className="header-logo-wrapper">
+          <img src="./Yesudoss_Logo.png" alt="logo" width={60} />
+          <p className="header-company-name">Yesudoss Builders</p>
         </Link>
 
         {/* menu */}

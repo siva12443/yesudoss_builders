@@ -1,29 +1,45 @@
 .h-wrapper {
-  z-index: 99;
-  position: sticky;
+  position: fixed;  /* Always stays in view */
   top: 0;
+  left: 0;
+  width: 100%;      /* Spans the full width of the page */
+  z-index: 999;     /* Ensure it’s above other elements */
+  background-color: #fff; /* Keep a solid background so content doesn't show through */
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); Optional shadow */
 }
+
 .h-container {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  display: flex;
+  justify-content: space-between; /* Logo on left, menu on right */
+  align-items: center;
+  padding: 1rem 2rem;
   color: var(--black);
-  justify-content: space-between;
 }
 
 .h-menu {
+  display: flex;
   gap: 2rem;
 }
 .h-menu > *:hover {
   cursor: pointer;
+  color: #8249d6;
 }
 .menu-icon {
   display: none;
 }
 
-.company-name-wrapper {
+.header-logo-wrapper {
   display: flex;
-  flex-direction: row;
   align-items: center;
+  text-decoration: none; /* If using an anchor/link */
+}
+
+/* Company Name Styles */
+.header-company-name {
+  margin-left: 10px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #8249d6; /* Adjust to your brand color */
 }
 
 .orangeText {
