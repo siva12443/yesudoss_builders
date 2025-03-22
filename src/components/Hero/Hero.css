@@ -163,8 +163,8 @@
     line-height: 3rem;
   }
   .image-container{
-    width: 95%;
-    /* height: 100%; */
+    width: 100%;
+    height: max-content;
     border-radius: 0px;
   }
   .stats{

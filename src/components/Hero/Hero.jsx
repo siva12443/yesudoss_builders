@@ -1,48 +1,70 @@
 import "./Hero.css";
+import React from "react";
 import CountUp from "react-countup";
 import { motion } from "framer-motion";
+import { init, sendForm } from '@emailjs/browser';
 // import SearchBar from "../SearchBar/SearchBar";
 import {FaStar} from 'react-icons/fa';
 import { useState } from "react";
 
+init(import.meta.env.VITE_EMAILJS_USER_ID)
+
 const Hero = () => {
-  const [enquirerName, setEnquirerName] = useState("");
-  const [enquirerContact, setEnquirerContact] = useState("");
-  const [enquirerEmail, setEnquirerEmail] = useState("");
-  const [serviceRequired, setServiceRequired] = useState("");
-  const [serviceDescription, setServiceDescription] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    contact: "",
+    email: "",
+    service: "Choose a Service",
+    description: ""
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
-    // Define template params as required by your EmailJS template
-    const templateParams = {
-      from_name: enquirerName,
-      contact_number: enquirerContact,
-      email: enquirerEmail,
-      service: serviceRequired,
-      description: serviceDescription,
-    };
+    // Basic validation
+    if (!/^\d{10}$/.test(formData.contact)) {
+      alert("Please enter a valid 10-digit phone number");
+      setIsSubmitting(false);
+      return;
+    }
 
-    // Send the email using EmailJS
-    emailjs
-      .send(
-        'YOUR_SERVICE_ID',    // e.g. service_xxx
-        'YOUR_TEMPLATE_ID',   // e.g. template_xxx
-        templateParams,
-        'YOUR_PUBLIC_KEY'     // e.g. user_xxx or publicKey_xxx
-      )
-      .then(
-        (response) => {
-          console.log('SUCCESS!', response.status, response.text);
-          alert('Your enquiry has been submitted!');
-          // Optionally clear form or set success state
-        },
-        (err) => {
-          console.error('FAILED...', err);
-          alert('There was an error sending your enquiry. Please try again.');
-        }
+    if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      alert("Please enter a valid email address");
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      await sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        e.target,
+        import.meta.env.VITE_EMAILJS_USER_ID
       );
+
+      alert('Thank you! We have received you enquiry. Our team will contact you shortly.');
+      setFormData({
+        name: "",
+        contact: "",
+        email: "",
+        service: "Choose a Service",
+        description: ""
+      });
+    } catch (err) {
+      console.error('Email send failed:', err);
+      alert('There was an error sending your enquiry. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
   };
   
   return (
@@ -116,15 +138,45 @@ const Hero = () => {
     <img src="./hero Image.jpg" alt="houses" className="hero-image" />
     
     {/* Enquiry Form Over the Image */}
-    <form className="enquiry-form">
-      <label>Name <span>*</span></label>
-      <input className="long-input" required onChange={(e) => setEnquirerName(e.target.value)}/>
+    <form className="enquiry-form" onSubmit={handleSubmit}>
+    <label>Name <span>*</span></label>
+      <input 
+        className="long-input" 
+        name="name"
+        value={formData.name}
+        onChange={handleChange}
+        required 
+      />
+
       <label>Contact <span>*</span></label>
-      <input className="long-input" required onChange={(e) => setEnquirerContact(e.target.value)}/>
+      <input 
+        className="long-input" 
+        name="contact"
+        type="tel"
+        pattern="[0-9]{10}"
+        value={formData.contact}
+        onChange={handleChange}
+        required 
+      />
+
       <label>Email <span>*</span></label>
-      <input className="long-input" required onChange={(e) => setEnquirerEmail(e.target.value)}/>
+      <input 
+        className="long-input" 
+        name="email"
+        type="email"
+        value={formData.email}
+        onChange={handleChange}
+        required 
+      />
+
       <label>Service <span>*</span></label>
-      <select className="long-input" required onChange={(e) => setServiceRequired(e.target.value)}> 
+      <select 
+        className="long-input" 
+        name="service"
+        value={formData.service}
+        onChange={handleChange}
+        required
+      >
         <option value="Choose a Service">Choose a Service</option>
         <option value="Building Construction">Building Construction</option>
         <option value="2D & 3D Printing">2D & 3D Printing</option>
@@ -132,9 +184,18 @@ const Hero = () => {
         <option value="Interiors & Paintings">Interiors & Paintings</option>
         <option value="Building Renovation">Building Renovation</option>
       </select>
+
       <label>Description</label>
-      <textarea className="long-input" required onChange={e => setServiceDescription(e.target.value)}/>
-      <button >Submit</button>
+      <textarea 
+        className="long-input" 
+        name="description"
+        value={formData.description}
+        onChange={handleChange}
+      />
+
+      <button type="submit" disabled={isSubmitting}>
+        {isSubmitting ? 'Sending...' : 'Submit'}
+      </button>
     </form>
   </motion.div>
 </div>
