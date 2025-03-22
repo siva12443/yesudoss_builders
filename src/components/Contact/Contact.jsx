@@ -56,7 +56,7 @@ const Contact = () => {
                   </div>
                 </div>
                 <div className="flexCenter button" 
-                href={`mailto:yesudossbuilders@gmail.com?subject=Enquiry%20Regarding%20Construction%20Services&body=Dear%20Yesudoss%20Builders,%0A%0A[Please%20provide%20your%20enquiry%20details%20here]%0A%0AName:%0AContact:%0AService%20Required:%0ADescription:`}
+                onClick={() => window.open(`mailto:yesudossbuilders@gmail.com?subject=Enquiry%20Regarding%20Construction%20Services&body=Dear%20Yesudoss%20Builders,%0A%0A[Please%20provide%20your%20enquiry%20details%20here]%0A%0AName:%0AContact:%0AService%20Required:%0ADescription:`)}
                 target="_blank"
                 rel="noopener noreferrer">Write Email</div>
               </div>
