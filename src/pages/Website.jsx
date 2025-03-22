@@ -9,6 +9,7 @@ import Hero from "../components/Hero/Hero";
 import Services from "../components/Services/Services";
 import Residencies from '../components/Projects/Projects';
 import Value from "../components/Value/Value";
+import ConstructionPackages from '../components/Packages/page';
 
 
 const Website = () => {
@@ -23,6 +24,9 @@ const Website = () => {
       <div id="valueSection">
         <Value />
       </div>
+      {/* <div id="packageSection">
+        <ConstructionPackages />
+      </div> */}
       <div id="projectsSection">
         <Residencies />
       </div>

@@ -71,6 +71,7 @@
   border-radius: 15rem 0 15rem 0;
   border: 8px solid rgba(255, 255, 255, 0.12);
 }
+
 .image-container>img{
     width: 100%;
     height: 100%;
@@ -87,6 +88,7 @@
 .hero-image {
   width: 100%; /* Ensures the image is responsive */
   height: auto;
+  
    /* Reduce opacity to make form visible */
 }
 
@@ -162,7 +164,8 @@
   }
   .image-container{
     width: 95%;
-    height: 25rem;
+    /* height: 100%; */
+    border-radius: 0px;
   }
   .stats{
     justify-content: center;

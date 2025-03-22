@@ -1,0 +1,45 @@
+.p-wrapper{
+    background-color: var(--lightBlue);
+}
+
+.p-container {
+    gap: 2rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+    flex-direction: row;
+  }
+
+.p-card {
+    background: white;
+    height: 100%;
+    padding: 20px 20px;
+}
+
+.p-card h3{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.services-description{
+    display: flex;
+    padding: 10px 10px;
+}
+
+.p-wrapper h2{
+    font-weight: bold;
+    font-size: 2rem;
+    color: #8249d6;
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 3%;
+}
+
+@media (max-width: 648px) {
+    .p-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
