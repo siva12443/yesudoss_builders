@@ -27,7 +27,7 @@ const Contact = () => {
                     <span className="contactTitle">Call</span>
                   </div>
                 </div>
-                <div className="flexCenter button">Call now</div>
+                <div className="flexCenter button" onClick={() => window.open("tel:+917358188299", "_self")}>Call now</div>
               </div>
 
               <div className="flexColCenter mode">
@@ -39,7 +39,7 @@ const Contact = () => {
                     <span className="contactTitle">Chat</span>
                   </div>
                 </div>
-                <div className="flexCenter button">Chat now</div>
+                <div className="flexCenter button" onClick={() => window.open('https://wa.me/7358188299?text=Hello%2C%20Yesudoss%20Builders!', '_blank')}>Chat now</div>
               </div>
             </div>
 
@@ -55,7 +55,10 @@ const Contact = () => {
                     <span className="contactText">yesudossbuilders@gmail.com</span>
                   </div>
                 </div>
-                <div className="flexCenter button">Write Email</div>
+                <div className="flexCenter button" 
+                href={`mailto:yesudossbuilders@gmail.com?subject=Enquiry%20Regarding%20Construction%20Services&body=Dear%20Yesudoss%20Builders,%0A%0A[Please%20provide%20your%20enquiry%20details%20here]%0A%0AName:%0AContact:%0AService%20Required:%0ADescription:`}
+                target="_blank"
+                rel="noopener noreferrer">Write Email</div>
               </div>
 
               {/* <div className="flexColCenter mode">
