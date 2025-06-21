@@ -33,15 +33,18 @@ const Header = () => {
         {/* menu */}
         <OutsideClickHandler
           onOutsideClick={() => {
-            setMenuOpened(false);
+            if (menuOpened) setMenuOpened(false);
           }}
         >
-          <div className = "flexCenter h-menu" style={getMenuStyles(menuOpened)}>
-            <a href="#heroSection">Home</a>
-            <a href="#servicesSection" >Our Services</a>
-            {/* <a >Construction Package</a> */}
-            <a href="#projectsSection">Our Projects</a>
-            <a href="#contactSection">Contact Us</a>
+          <div
+            className="flexCenter h-menu"
+            style={getMenuStyles(menuOpened)}
+            onClick={e => e.stopPropagation()} // Prevent closing when clicking inside menu
+          >
+            <a href="#heroSection" onClick={() => setMenuOpened(false)}>Home</a>
+            <a href="#servicesSection" onClick={() => setMenuOpened(false)}>Our Services</a>
+            <a href="#projectsSection" onClick={() => setMenuOpened(false)}>Our Projects</a>
+            <a href="#contactSection" onClick={() => setMenuOpened(false)}>Contact Us</a>
           </div>
           {/* <div
             // ref={menuRef}
@@ -61,7 +64,7 @@ const Header = () => {
         </OutsideClickHandler>
 
         {/* for medium and small screens */}
-        <div className="menu-icon" onClick={() => setMenuOpened((prev) => !prev)}>
+        <div className="menu-icon" onClick={e => { e.stopPropagation(); setMenuOpened(prev => !prev); }}>
           <MdMenu size={30} />
         </div>  
         {/* <div
